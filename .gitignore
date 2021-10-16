@@ -17,6 +17,7 @@ helpsearch*/
 # Simulink code generation folders
 slprj/
 sccprj/
+Foo/
 
 # Matlab code generation folders
 codeDir/

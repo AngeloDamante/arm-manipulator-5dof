@@ -2,7 +2,7 @@
 clear
 clc
 
-robot = importrobot('Tinkerkit_model/tinkerkitmod.urdf');
+robot = importrobot('Tinkerkit_model/tinkerkit4Dof.urdf');
 robot2=importrobot('Tinkerkit_model/tinkerkit.urdf');
 numJoints = numel(homeConfiguration(robot));
 

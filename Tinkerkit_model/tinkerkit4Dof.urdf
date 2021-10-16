@@ -30,7 +30,7 @@
     </visual>
   </link>
 
-  <link name="link2">
+    <link name="link2">
     <visual>
       <geometry>
         <mesh filename="./shoulder.stl"/>
@@ -40,7 +40,7 @@
     </visual>
   </link>
 
-  <link name="link3">
+    <link name="link3">
     <visual>
       <geometry>
         <mesh filename="./elbow.stl"/>
@@ -50,23 +50,13 @@
     </visual>
   </link>
 
-  <link name="link4">
+    <link name="link4">
     <visual>
       <geometry>
         <mesh filename="./wrist_pitch.stl"/>
       </geometry>
       <material name="orange"/>
       <origin rpy="0 0 0" xyz="0 0 -0.2905"/> 
-    </visual>
-  </link>
-  
-  <link name="link5">
-    <visual>
-      <geometry>
-        <mesh filename="./wrist_roll.stl"/>
-      </geometry>
-      <material name="white"/>
-      <origin rpy="0 0 0" xyz="0 0 -0.3505"/> 
     </visual>
   </link>
 
@@ -94,7 +84,7 @@
     <child link="link3"/>
   </joint>
 
-  <joint name="wrist_pitch" type="revolute">
+    <joint name="wrist_pitch" type="revolute">
     <axis xyz="1 0 0"/>
     <limit effort="1000.0" lower="0" upper="3.141592653589793" velocity="4.0"/>
     <origin rpy="-1.5707963267948966 0 0" xyz="0 0 0.1205"/>
@@ -102,12 +92,4 @@
     <child link="link4"/>
   </joint>
 
-  <joint name="wrist_roll" type="revolute">
-    <axis xyz="0 0 -1"/>
-    <limit effort="1000.0" lower="0.0" upper="3.141592653589793" velocity="4.0"/>
-    <origin rpy="0 0 0" xyz="0 0.0 0.06"/>
-    <parent link="link4"/>
-    <child link="link5"/>
-  </joint>
-  
 </robot>
