@@ -3,7 +3,7 @@ clear
 clc
 
 robot = importrobot('Tinkerkit_model/tinkerkit4Dof.urdf');
-robot2=importrobot('Tinkerkit_model/tinkerkit.urdf');
+robot2 = importrobot('Tinkerkit_model/tinkerkit.urdf');
 numJoints = numel(homeConfiguration(robot));
 
 eeOffset=0.16;
@@ -43,7 +43,7 @@ hold off
 
 %% Cinematica Inversa
 ik = robotics.InverseKinematics('RigidBodyTree',robot);
-ik.SolverAlgorithm='LevenbergMarquardt';
+ik.SolverAlgorithm = 'LevenbergMarquardt';
 weights = [0 0 0 1 1 1];
 initialguess = config;
 [n,~]=size(wayPoints);

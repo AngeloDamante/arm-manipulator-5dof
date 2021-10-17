@@ -28,4 +28,8 @@ cacheDir/
 
 # Simulink cache files
 *.slxc
+*.original
+
+# Simulink 3D Animation
+*.wrl.*
 
