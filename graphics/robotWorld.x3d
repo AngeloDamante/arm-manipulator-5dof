@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.3.xsd'>
+<head>
+</head>
+<Scene>
+<NavigationInfo type='"EXAMINE" ' avatarSize='0.2 1.6 0.75'>
+</NavigationInfo>
+<Background groundAngle='0.9 1.5 1.57' groundColor='0 0.8 0 0.174249 0.82 0.187362 0.467223 0.82 0.445801 0.621997 0.67 0.600279' skyAngle='0.1 1.2 1.57' skyColor='0.76238 0.8 0.1427 0.277798 0.219779 0.7 0.222549 0.390234 0.7 0.60094 0.662637 0.69'>
+</Background>
+<DirectionalLight direction='-1 -1 -1' ambientIntensity='0.5' intensity='0.6'>
+</DirectionalLight>
+<DirectionalLight direction='1 -1 1' ambientIntensity='0.5' intensity='0.6'>
+</DirectionalLight>
+<Viewpoint DEF='CloseView'  fieldOfView='0.7854' description='Close View' orientation='-0.263806 0.959757 0.0962969 0.726878' position='1 0.6 1.5'>
+</Viewpoint>
+<Viewpoint DEF='VP_Top'  fieldOfView='0.7854' description='View from the Top' orientation='1 0 0 -1.5708' position='0 5 0'>
+</Viewpoint>
+<Transform translation='4 1.1 0' rotation='0 1 0 1.5708'>
+  <Viewpoint DEF='VP_Right'  fieldOfView='0.7854' description='View from the Right' orientation='1 0 0 -0.1' position='0 0 0'>
+  </Viewpoint>
+</Transform>
+<Transform translation='8 3 8' rotation='0 1 0 0.8'>
+  <Viewpoint DEF='VP_Overview'  fieldOfView='0.7854' description='Overview' orientation='1 0 0 -0.3' position='0 0 0'>
+  </Viewpoint>
+</Transform>
+<Transform DEF='Static_Objects'  translation='-5 0 -5'>
+  <Shape DEF='Ground' >
+    <Appearance>
+      <TextureTransform scale='50 50'>
+      </TextureTransform>
+      <ImageTexture url='"*sl3dlib/objects/Textures/General/Gravel.jpg" '>
+      </ImageTexture>
+    </Appearance>
+    <IndexedFaceSet coordIndex='3 2 1 0 -1' colorPerVertex='false'>
+      <Coordinate point='-105 -0.1 -105 125 -0.1 -105 125 -0.1 125 -105 -0.1 125'>
+      </Coordinate>
+    </IndexedFaceSet>
+  </Shape>
+  <Shape DEF='Crane_Area' >
+    <Appearance>
+      <Material DEF='Area_Mat'  shininess='0' diffuseColor='0.37 0.5 0.33' ambientIntensity='0.5'>
+      </Material>
+    </Appearance>
+    <IndexedFaceSet coordIndex='3 2 1 0 -1'>
+      <Coordinate point='-0.2 -0.02 -0.2 10.2 -0.02 -0.2 10.2 -0.02 10.2 -0.2 -0.02 10.2'>
+      </Coordinate>
+    </IndexedFaceSet>
+  </Shape>
+  <Shape DEF='Area_Border' >
+    <Appearance>
+      <!--emissiveColor 1 .82 0-->
+      <Material DEF='Yellow'  shininess='0' diffuseColor='1 0.82 0' ambientIntensity='0.5'>
+      </Material>
+    </Appearance>
+    <IndexedFaceSet coordIndex='3 2 1 0 -1 7 6 5 4 -1 11 10 9 8 -1 15 14 13 12 -1'>
+      <Coordinate point='-0.2 0.02 -0.2 0 0.02 -0.2 0 0.02 10.2 -0.2 0.02 10.2 -0.2 0.02 -0.2 10.2 0.02 -0.2 10.2 0.02 0 -0.2 0.02 0 10 0.02 -0.2 10.2 0.02 -0.2 10.2 0.02 10.2 10 0.02 10.2 -0.2 0.02 10 10.2 0.02 10 10.2 0.02 10.2 -0.2 0.02 10.2'>
+      </Coordinate>
+    </IndexedFaceSet>
+  </Shape>
+</Transform>
+<!--Working space box-->
+<Transform DEF='Robot_Parent' >
+</Transform>
+<!--Setpoint visualization bars-->
+<Transform DEF='Cage'  translation='0 1 0'>
+  <Shape>
+    <Appearance>
+      <Material transparency='0.9'>
+      </Material>
+    </Appearance>
+    <Box size='1 1 1'>
+    </Box>
+  </Shape>
+</Transform>
+<Transform DEF='SP_Tracer_X'  translation='0 0.5 0'>
+  <Shape>
+    <Appearance>
+      <Material transparency='0.3' diffuseColor='1 0 0'>
+      </Material>
+    </Appearance>
+    <Box size='0.5 0.002 0.02'>
+    </Box>
+  </Shape>
+</Transform>
+<Transform DEF='SP_Tracer_Y'  translation='0 0.5 0'>
+  <Shape>
+    <Appearance>
+      <Material transparency='0.3' diffuseColor='1 0 0'>
+      </Material>
+    </Appearance>
+    <Box size='0.002 1.5 0.002'>
+    </Box>
+  </Shape>
+</Transform>
+<Transform DEF='SP_Tracer_Z'  translation='0 0.5 0'>
+  <!--rotation	0 -1 0  1.5708-->
+  <Shape>
+    <Appearance>
+      <Material transparency='0.3' diffuseColor='1 0 0'>
+      </Material>
+    </Appearance>
+    <Box size='0.002 0.002 0.5'>
+    </Box>
+  </Shape>
+</Transform>
+<!--SetPoint with switching between normal and highlighted-->
+<!--Box offset-->
+<Transform>
+  <Transform DEF='SetPoint'  scale='0.05 0.05 0.05'>
+    <!--				Transform {-->
+    <!--					translation	1 0.2 0-->
+    <!--					rotation 0 1 0 -0.4-->
+    <!--					children [-->
+    <!--						DEF Setpoint_View Viewpoint	{-->
+    <!--							description	"Setpoint View"-->
+    <!--							orientation	1 0 0 -0.2-->
+    <!--						}-->
+    <!--					]-->
+    <!--				}-->
+    <Switch DEF='SP_Highlight'  whichChoice='0'>
+      <!--Normal-->
+      <Shape>
+        <Appearance>
+          <Material transparency='0.6' specularColor='1 0 0' diffuseColor='1 0 0'>
+          </Material>
+        </Appearance>
+        <Box size='1 1 1'>
+        </Box>
+      </Shape>
+      <!--Highlighted-->
+      <Shape>
+        <Appearance>
+          <Material specularColor='0.05 0.13 1' shininess='0.08' emissiveColor='1 0.02 0.39' diffuseColor='0 0 0' ambientIntensity='0'>
+          </Material>
+        </Appearance>
+        <Box size='1 1 1'>
+        </Box>
+      </Shape>
+    </Switch>
+  </Transform>
+</Transform>
+<!--Script to compute SetPoint tracers translations-->
+<Script DEF='SetPoint_Tracers_Control'  directOutput='false' mustEvaluate='false'>
+<field name='Node1' type='SFNode' accessType='initializeOnly'>
+
+  <Transform USE='SP_Tracer_X' >
+  </Transform></field>
+<field name='Node2' type='SFNode' accessType='initializeOnly'>
+
+  <Transform USE='SP_Tracer_Y' >
+  </Transform></field>
+<field name='Node3' type='SFNode' accessType='initializeOnly'>
+
+  <Transform USE='SP_Tracer_Z' >
+  </Transform></field>
+<field name='set_SP_Ttransl' type='SFVec3f' accessType='inputOnly'/>
+<field name='SP_Transl_changed' type='SFVec3f' accessType='outputOnly'/>
+<![CDATA[vrmlscript:
+	function set_SP_Ttransl (value) {
+		Node1.set_translation = new SFVec3f (0, value[1], value[2]);
+		Node2.set_translation =  new SFVec3f (value[0], 1, value[2]);
+		Node3.set_translation = new SFVec3f (value[0], value[1], 0);
+	}
+
+
+
+
+
+]]>
+</Script>
+<ROUTE fromNode='SetPoint' fromField='translation' toNode='SetPoint_Tracers_Control' toField='set_SP_Ttransl'/>
+
+</Scene>
+</X3D>
