@@ -1,23 +1,24 @@
-function [flagOk, dValueBytes] = evaluateUsageMemory(path)
+function dValueBytes = evaluateUsageMemory(szWsPath)
 %{
     Arduino Uno Flash = 32 KB
     Arduino Mega 2560 Flash = 256 KB
 %}
 
-if (nargin < 1)
-    flagOk = false;
-    dValueBytes = 0;
+% Arguments check
+if (nargin < 1 || nargin > 1)
+    disp('Error, argument must be a valid path');
+    dValueBytes = -1;
     return;
 end
 
-if (exist(path, 'file') ~= 2)
-    flagOk = false;
-    dValueBytes = 0;
+% Correct path check
+if (exist(szWsPath, 'file') ~= 2)
+    disp('Error, the must be file with .mat extension');
+    dValueBytes = -1;
     return;
 end
 
-flagOk = true;
-ws = whos('-file', path);
+ws = whos('-file', szWsPath);
 
 adSize = zeros(size(ws, 1), 1);
 for i=1:size(ws,1)
