@@ -33,3 +33,6 @@ cacheDir/
 # Simulink 3D Animation
 *.wrl.*
 
+# Hidden files
+.*
+!/.gitignore
