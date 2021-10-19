@@ -1,4 +1,4 @@
-function [flagOk, dValueBytes] = scriptEvaluateUsageMemory(path)
+function [flagOk, dValueBytes] = evaluateUsageMemory(path)
 %{
     Arduino Uno Flash = 32 KB
     Arduino Mega 2560 Flash = 256 KB
