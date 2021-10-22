@@ -94,6 +94,7 @@ end
 
 JointCommandsRad=[JointCommandsRad(1,:); JointCommandsRad];
 JointCommandsDeg=JointCommandsRad*180/pi;
+
 %% Segnale dei Comandi ai Giunti
 tot=20;
 step=tot/totalPoints;
