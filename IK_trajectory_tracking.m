@@ -2,7 +2,7 @@
 clear
 clc
 
-robot = importrobot('Tinkerkit_model/tinkerkitmod.urdf');
+robot = importrobot('Tinkerkit_model/tinkerkit4DOF.urdf');
 robot2 = importrobot('Tinkerkit_model/tinkerkit.urdf');
 numJoints = numel(homeConfiguration(robot));
 
@@ -31,10 +31,10 @@ punto_palla=[0.1 0.2 0.05];
 punto_intermedio=[0.15 0 0.25];
 punto_scatola=[0.1 -0.2 0.05];
 
-%wayPoints=[punto_iniziale; punto_palla; punto_intermedio; punto_scatola];
-wayPoints=[0 0 0.4515; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; ...
-  (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05;...
-  (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05]; %genera 6 punti casuali nello spazio di lavoro
+wayPoints=[punto_iniziale; punto_palla; punto_intermedio; punto_scatola; punto_iniziale];
+%wayPoints=[0 0 0.4515; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; ...
+%   (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05;...
+%   (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05]; %genera 6 punti casuali nello spazio di lavoro
 
 plot3(wayPoints(:,1),wayPoints(:,2),wayPoints(:,3),'.','MarkerSize',40,  'MarkerEdgeColor','k'); %punti di passaggio dell'EE
 hold on
@@ -81,7 +81,6 @@ for idx = 1:size(eePos,2)
 end
 hold off
 
-
 %% Matrice di Comandi ai Giunti
 JointCommandsRad=zeros(size(eePos,2),numJoints);
 wayPoints=wayPoints';
@@ -109,17 +108,17 @@ grid on
 figure
 shoulder=[time; JointCommandsDeg(:,2)'];
 plot(shoulder(1,:),shoulder(2,:));
-title('Base Motor Signal')
+title('Shoulder Motor Signal')
 grid on
 
 figure
 elbow=[time; JointCommandsDeg(:,3)'];
 plot(elbow(1,:),elbow(2,:));
-title('Base Motor Signal')
+title('Elbow Motor Signal')
 grid on
 
 figure
 wrist=[time; JointCommandsDeg(:,4)'];
 plot(wrist(1,:),wrist(2,:));
-title('Base Motor Signal')
+title('Wrist Motor Signal')
 grid on
