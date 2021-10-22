@@ -2,7 +2,7 @@
 clear
 clc
 
-robot = importrobot('Tinkerkit_model/tinkerkit4Dof.urdf');
+robot = importrobot('Tinkerkit_model/tinkerkitmod.urdf');
 robot2 = importrobot('Tinkerkit_model/tinkerkit.urdf');
 numJoints = numel(homeConfiguration(robot));
 
@@ -31,7 +31,10 @@ punto_palla=[0.1 0.2 0.05];
 punto_intermedio=[0.15 0 0.25];
 punto_scatola=[0.1 -0.2 0.05];
 
-wayPoints=[punto_iniziale; punto_palla; punto_intermedio; punto_scatola];
+%wayPoints=[punto_iniziale; punto_palla; punto_intermedio; punto_scatola];
+wayPoints=[0 0 0.4515; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; ...
+  (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05;...
+  (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05]; %genera 6 punti casuali nello spazio di lavoro
 
 plot3(wayPoints(:,1),wayPoints(:,2),wayPoints(:,3),'.','MarkerSize',40,  'MarkerEdgeColor','k'); %punti di passaggio dell'EE
 hold on
@@ -41,7 +44,7 @@ fnplt(traj,'r',2);
 grid on
 hold off
 
-%% Cinematica Inversa
+%% Cinematica Inversa Traiettoria
 ik = robotics.InverseKinematics('RigidBodyTree',robot);
 ik.SolverAlgorithm = 'LevenbergMarquardt';
 weights = [0 0 0 1 1 1];
@@ -79,13 +82,44 @@ end
 hold off
 
 
-%% Cinematica Diretta per Posizione End Effector
-JointCommands=zeros(size(eePos,2),numJoints);
+%% Matrice di Comandi ai Giunti
+JointCommandsRad=zeros(size(eePos,2),numJoints);
 wayPoints=wayPoints';
 
 for i = 1:size(eePos,2)
-    JointCommands(i,1)=configSoln(i,1).JointPosition;
-    JointCommands(i,2)=configSoln(i,2).JointPosition;
-    JointCommands(i,3)=configSoln(i,3).JointPosition;
-    JointCommands(i,4)=configSoln(i,4).JointPosition;
+    JointCommandsRad(i,1)=configSoln(i,1).JointPosition;
+    JointCommandsRad(i,2)=configSoln(i,2).JointPosition;
+    JointCommandsRad(i,3)=configSoln(i,3).JointPosition;
+    JointCommandsRad(i,4)=configSoln(i,4).JointPosition;
 end
+
+JointCommandsRad=[JointCommandsRad(1,:); JointCommandsRad];
+JointCommandsDeg=JointCommandsRad*180/pi;
+%% Segnale dei Comandi ai Giunti
+tot=20;
+step=tot/totalPoints;
+time=0:step:tot;
+
+figure
+base=[time; JointCommandsDeg(:,1)'];
+plot(base(1,:),base(2,:));
+title('Base Motor Signal')
+grid on
+
+figure
+shoulder=[time; JointCommandsDeg(:,2)'];
+plot(shoulder(1,:),shoulder(2,:));
+title('Base Motor Signal')
+grid on
+
+figure
+elbow=[time; JointCommandsDeg(:,3)'];
+plot(elbow(1,:),elbow(2,:));
+title('Base Motor Signal')
+grid on
+
+figure
+wrist=[time; JointCommandsDeg(:,4)'];
+plot(wrist(1,:),wrist(2,:));
+title('Base Motor Signal')
+grid on
