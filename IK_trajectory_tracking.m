@@ -31,10 +31,10 @@ punto_palla=[0.1 0.2 0.05];
 punto_intermedio=[0.15 0 0.25];
 punto_scatola=[0.1 -0.2 0.05];
 
-wayPoints=[punto_iniziale; punto_palla; punto_intermedio; punto_scatola; punto_iniziale];
-%wayPoints=[0 0 0.4515; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; ...
-%   (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05;...
-%   (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05]; %genera 6 punti casuali nello spazio di lavoro
+%wayPoints=[punto_iniziale; punto_palla; punto_intermedio; punto_scatola; punto_iniziale];
+wayPoints=[0 0 0.4515; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; ...
+  (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05;...
+  (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05]; %genera 6 punti casuali nello spazio di lavoro
 
 plot3(wayPoints(:,1),wayPoints(:,2),wayPoints(:,3),'.','MarkerSize',40,  'MarkerEdgeColor','k'); %punti di passaggio dell'EE
 hold on
