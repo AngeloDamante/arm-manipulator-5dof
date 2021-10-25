@@ -11,14 +11,16 @@ eeBody=robotics.RigidBody('end_effector');
 setFixedTransform(eeBody.Joint, trvec2tform([0 0 eeOffset]));
 addBody(robot,eeBody,'link4');
 
+clc
+
 %% Imposto la posizione HOME
 config = homeConfiguration(robot);
 config2 = homeConfiguration(robot2);
 
 config(1).JointPosition=pi/2;
 config(2).JointPosition=pi/2;
-config(3).JointPosition=pi/2;
-config(4).JointPosition=pi/2;
+config(3).JointPosition=pi/4;
+config(4).JointPosition=pi/4;
 
 show(robot, config);
 title('Braccio: HOME Configuration')
@@ -26,13 +28,14 @@ axis([-0.3 0.3 -0.3 0.3 -0.1 0.5]);
 hold on
 
 %% Detect dei Punti da Raggiungere e Tracciamento Traiettoria
-punto_iniziale=[0 0 0.4515];
+%punto_iniziale=[0 0 0.4515]; %config=[pi/2 pi/2 pi/2 pi/2]
+punto_iniziale=[0.2452 0 0.2562]; %config=[pi/2 pi/2 pi/4 pi/4]
 punto_palla=[0.1 0.2 0.05];
 punto_intermedio=[0.15 0 0.25];
 punto_scatola=[0.1 -0.2 0.05];
 
-%wayPoints=[punto_iniziale; punto_palla; punto_intermedio; punto_scatola; punto_iniziale];
-wayPoints=[0 0 0.4515; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; ...
+% wayPoints=[punto_iniziale; punto_palla; punto_iniziale; punto_scatola; punto_iniziale];
+wayPoints=[punto_iniziale; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; ...
   (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05;...
   (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05]; %genera 6 punti casuali nello spazio di lavoro
 
@@ -101,25 +104,30 @@ step=tot/totalPoints;
 time=0:step:tot;
 
 figure
-base=[time; JointCommandsDeg(:,1)'];
-plot(base(1,:),base(2,:));
+base.time=time';
+base.signals.values=JointCommandsDeg(:,1);
+subplot(2,2,1);
+plot(time,JointCommandsDeg(:,1)');
 title('Base Motor Signal')
 grid on
 
-figure
-shoulder=[time; JointCommandsDeg(:,2)'];
-plot(shoulder(1,:),shoulder(2,:));
+shoulder.time=time';
+shoulder.signals.values=JointCommandsDeg(:,2);
+subplot(2,2,2);
+plot(time,JointCommandsDeg(:,2)');
 title('Shoulder Motor Signal')
 grid on
 
-figure
-elbow=[time; JointCommandsDeg(:,3)'];
-plot(elbow(1,:),elbow(2,:));
+elbow.time=time';
+elbow.signals.values=JointCommandsDeg(:,3);
+subplot(2,2,3);
+plot(time,JointCommandsDeg(:,3)');
 title('Elbow Motor Signal')
 grid on
 
-figure
-wrist=[time; JointCommandsDeg(:,4)'];
-plot(wrist(1,:),wrist(2,:));
+wrist.time=time';
+wrist.signals.values=JointCommandsDeg(:,4);
+subplot(2,2,4);
+plot(time,JointCommandsDeg(:,4)');
 title('Wrist Motor Signal')
 grid on
