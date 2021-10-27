@@ -56,7 +56,8 @@ q2      = gamma - beta;
 % Wrist
 q4 = dPhiRad - q2 - q3;
 
-% Output
-adQ = [q1; q2; q3; q4; 0];
+% Mapping Motors
+%adQ = [pi/2 - q1; q2; q3 + pi/2; q4 + pi/2; 0];
+adQ     = [q1; q2; q3; q4; 0];
 
 end
