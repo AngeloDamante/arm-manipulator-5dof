@@ -40,7 +40,7 @@ This project consists in:
 ├── modelBraccioSimulation.slx              # HW Implementation Phase
 ├── RobotArmControl.slx                     # Test to connect Tinkerkit Shield
 ├── Braccio_trajectory_tracking.slx         # Test to generate trajectory
-├── FK.slx                                  # Test FK and IK
+├── FK_IK.slx                               # Test FK and IK
 ├── IK_trajectory_tracking.m                # Script to test path generator
 ├── functions                               # Matlab functions files
 │   └── ...
