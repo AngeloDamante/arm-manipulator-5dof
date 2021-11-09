@@ -18,31 +18,53 @@ Best Practise to maintain clean code,
 ```
 set the baudrate for arduino model mega 2560,
 ```
-codertarget.arduinobase.registry.setBaudRate('simulink_model_name', 9600)
+>> codertarget.arduinobase.registry.setBaudRate('simulink_model_name', 9600)
 ```
-set paths data in matlab workspace
+prepare the matlab and simulink environment
 ```
->> addpath(genpath('data'))
->> addpath(genpath('functions'))
+>> initSim.m       # To start simulation env with Robotics Toolbox
+>> initHW.m        # To start HW with code generation and Unit Test
+```
+remember: <b>you can only start in real robot model with all</b> ```successful tests``` as the following output. 
+```
+Ut: PASS ---- carnotRule
+Ut: PASS ---- computeT
+UT: PASS ---- Robot builded in 0.43 ms:
+UT: PASS ---- IK computed in 1.89 ms:
+UT: PASS ---- FK computed in 0.01 ms:
+Ut: PASS ---- FK_IK class works fine
 ```
 
 ## Project
 This project consists in:
 1. Designing of Robot Model with URDF.
 2. Simulation KIN and Inverse KIN for target acquisition.
-3. Design of Controller for Arm Manipulator 6 DOF.
-4. Generate stand-alone code for `Tinkerkit Braccio` model.
-5. Connect `PixyCam` to acquire the waypoints. 
+3. HW Implementation of KIN and Inverse KIN for target acquisition.
+4. Design of Controller for Arm Manipulator 6 DOF.
+5. Generate stand-alone code for `Tinkerkit Braccio` model.
+6. Connect `PixyCam` to acquire the waypoints. 
 
 ### Directories Layout
 ```
-├── modelBraccioHWImplementation.slx        # Simulation Phase
-├── modelBraccioSimulation.slx              # HW Implementation Phase
-├── RobotArmControl.slx                     # Test to connect Tinkerkit Shield
-├── Braccio_trajectory_tracking.slx         # Test to generate trajectory
-├── FK_IK.slx                               # Test FK and IK
-├── IK_trajectory_tracking.m                # Script to test path generator
-├── functions                               # Matlab functions files
+├── +classes                                # Classes definitions files
+│   ├── Joint.m
+│   ├── Link.m
+│   └── Robot5Dof.m
+├── +functions                              # Matlab functions files
+│   ├── computeT.m
+│   ├── carnotRule.m
+│   ├── evaluateUsageMemory.m
+│   ├── isInsideWorkspace.m
+│   └── makeWS.m
+├── +unittests                              # UT files
+│   ├── utCarnot.m
+│   ├── utComputeT.m
+│   ├── utEstimateMemory.m
+│   └── utFkIk.m
+├── models                                  
+│   ├── mHelloBraccio.slx                   # To test tinkerkit shield
+│   ├── mBraccioSimulation.slx              # Simulation Phase
+│   ├── mBraccioHW.slx                      # HW phase
 │   └── ...
 ├── data                                    # Ws data collectors
 │   └── ...
@@ -50,11 +72,12 @@ This project consists in:
 │   └── ...
 ├── Tinkerkit_model                         # URDF and stl files 
 │   └── ...
-├── docs
+├── docs                                    # utils docs
 │   └── ...
+├── initSim.m                               # Script to start simulation
+├── initHW.m                                # Script to start HW implementation
 └── README.md
 ```
-<!-- Forse sarebbe meglio suddividere in cartelle gli script e i modelli -->
 
 ## Simulation
 <i> Work in progress... </i>
