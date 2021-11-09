@@ -1,6 +1,6 @@
 function dValueBytes = evaluateUsageMemory(szWsPath)
 %{
-    Arduino Uno Flash = 32 KB
+    Arduino Uno Flash       = 32 KB
     Arduino Mega 2560 Flash = 256 KB
 %}
 

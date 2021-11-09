@@ -1,22 +1,20 @@
-function bFlag = fIsInsideWorkspace(adPoint, dRadius, dRinner, dHeightInner)
+function bFlag = isInsideWorkspace(adPoint, dRadius, dRinner, dHeightInner)
 %{
-    Verify if the point is inside sempisphere (z > 0) with O(0, 0) and
-    r = dRadius.
+    @brief      Verify if the point is inside sempisphere (z > 0) 
+                with O(0, 0) and r = dRadius.
+    
+    @details    But must take into account that the workspace will 
+                exclude the inner cylinder of radius dRI and dHI.
+     
+    @details    Simply Verify that 'dRinner^2 < x^2 + y^2 < dRadius^2'.
 
-    The equation is: x^2 + y^2 + z^2 = R^2
-
-    But must take into account that the workspace will exclude the 
-        inner cylinder of radius dRI and dHI.
-
-    Simply Verify that 'dRinner^2 < x^2 + y^2 < dRadius^2'.
+    @param      adPoint:        point to examine
+    @param      dRadius:        radius of sphere
+    @param      dRinner:        radius of inner cylinder
+    @param      dHeighInner:    height of inner cylinder
+    
+    @return     true if point is inside ws and else otherwise
 %}
-
-% 
-if(nargin == 1)
-    dRadius = 51.0;
-    dRinner = 8.0;
-    dHeightInner = 22.0;
-end
 
 % Check to evaluate data
 if (dRadius <= 0 || dRinner <= 0)
