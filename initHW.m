@@ -19,9 +19,7 @@ import unittests.*
 load('data/dhBraccioParam.mat');
 load('data/braccioRobot5Dof.mat');
 
-%%%% deve cambiare e caricare solo valori numerici e non array di oggetti
-
-%% Unit Tests 
+%% Unit Tests                                                      %%%%%%%
 unittests.utCarnot();
 unittests.utComputeT();
 unittests.utFkIk();
