@@ -91,7 +91,7 @@ classdef Robot5Dof
             
             % Compute angles with planar arm manipulator 
             r       = sqrt(adPoint(1)^2 + adPoint(2)^2);
-            if (bF1 == false), r = r*-1; end
+            if (bF1 == false), r = r * -1; end
             z       = adPoint(3) - obj.m_oGround.getLength();
             
             bF2     = false;
@@ -111,8 +111,11 @@ classdef Robot5Dof
             angle   = atan2(y, x);
             
             if (obj.m_oBase.isInRange(angle) == false)
-                if (angle < 0), angle = angle + pi; end
-                if (angle > 0), angle = angle - pi; end
+                if (angle <  0) 
+                    angle = angle + pi; 
+                else
+                    angle = angle - pi; 
+                end
                 bOk = false;
             end
         end
