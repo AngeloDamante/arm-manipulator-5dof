@@ -2,8 +2,8 @@ function utEstimateMemory()
 arduinoUno      = 32768;    % Byte
 arduinoMega     = 262144;   % Byte
 
-dhFile          = 'data/dhBraccioParam.mat'; 
-braccioFile     = 'data/braccioRobot5Dof.mat';
+dhFile          = 'data/dDhBraccioParam.mat'; 
+braccioFile     = 'data/dBraccioRobot5Dof.mat';
 dhData          = functions.evaluateUsageMemory(dhFile);
 braccioData     = functions.evaluateUsageMemory(braccioFile);
 

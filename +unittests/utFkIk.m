@@ -1,6 +1,6 @@
 function utFkIk()
 
-dh = load('data/dhBraccioParam.mat');
+dh = load('data/dDhBraccioParam.mat');
 
 dt0 = tic; % init cpu timer
 
@@ -36,7 +36,7 @@ oBraccio        = classes.Robot5Dof(aoJoints(1), aoJoints(2),   ...
                                     aoLinks(4));
 dtf = toc(dt0); % stopwatch timer
 
-fprintf('UT: PASS ---- Robot builded in %2.2f ms:\n', dtf*1000);
+fprintf('UT: PASS ---- Robot built in %2.2f ms:\n', dtf*1000);
 
 % UT: Inner WS points generation
 adWS        = [400; 120; 220];
@@ -64,7 +64,7 @@ for p=1:size(dataset,2)
     dtfFK   = toc(dt0FK);
     
     % Tracker test
-    bTest   = bTest && bF && (abs(norm(adT(1:3,end)) - norm(point)) < 1e-04);
+    bTest   = bTest && bF && (abs(norm(adT(1:3,end) - point)) < 1e-04);
 end
 
 % Timing
