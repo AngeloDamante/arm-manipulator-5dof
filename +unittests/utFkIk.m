@@ -1,6 +1,6 @@
 function utFkIk()
 
-dh = load('data/dDhBraccioParam.mat');
+dh = load('data/dBraccioDhParam.mat');
 
 dt0 = tic; % init cpu timer
 
