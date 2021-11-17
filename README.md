@@ -61,11 +61,14 @@ This project consists in:
 │   ├── utComputeT.m
 │   ├── utEstimateMemory.m
 │   └── utFkIk.m
-├── models                                  
-│   ├── mHelloBraccio.slx                   # To test tinkerkit shield
-│   ├── mBraccioSimulation.slx              # Simulation Phase
-│   ├── mBraccioHW.slx                      # HW phase
-│   └── ...
+├── models         
+│   ├── simulation                          # Robotics Toolbox models
+│   │   ├── mBraccioSimulation.slx          # Simulation Phase
+│   │   └── ...
+│   └── hardware                            # Hardware code-generator models
+│       ├── mHelloBraccio.slx               # To test tinkerkit shield
+│       ├── mBraccioHW.slx                  # HW phase
+│       └── ...
 ├── data                                    # Ws data collectors
 │   └── ...
 ├── graphics                                # wrl and x3d files
