@@ -1,0 +1,26 @@
+rtiostream_interface.o: \
+ /Applications/MATLAB_R2021a.app/rtw/c/src/ext_mode/common/rtiostream_interface.c \
+ /Applications/MATLAB_R2021a.app/rtw/c/src/ext_mode/common/updown_util.h \
+ /Users/loris/Desktop/Uni/arm-manipulator-6dof/mRobotArm_PickAndPlace_ert_rtw/rtwtypes.h \
+ /Applications/MATLAB_R2021a.app/extern/include/tmwtypes.h \
+ /Applications/MATLAB_R2021a.app/simulink/include/rtw_extmode.h \
+ /Applications/MATLAB_R2021a.app/toolbox/coder/rtiostream/src/rtiostream.h \
+ /Applications/MATLAB_R2021a.app/toolbox/coder/rtiostream/src/utils/rtiostream_utils.h \
+ /Applications/MATLAB_R2021a.app/rtw/c/src/ext_mode/common/ext_types.h \
+ /Applications/MATLAB_R2021a.app/rtw/c/src/ext_mode/common/ext_share.h
+
+/Applications/MATLAB_R2021a.app/rtw/c/src/ext_mode/common/updown_util.h:
+
+/Users/loris/Desktop/Uni/arm-manipulator-6dof/mRobotArm_PickAndPlace_ert_rtw/rtwtypes.h:
+
+/Applications/MATLAB_R2021a.app/extern/include/tmwtypes.h:
+
+/Applications/MATLAB_R2021a.app/simulink/include/rtw_extmode.h:
+
+/Applications/MATLAB_R2021a.app/toolbox/coder/rtiostream/src/rtiostream.h:
+
+/Applications/MATLAB_R2021a.app/toolbox/coder/rtiostream/src/utils/rtiostream_utils.h:
+
+/Applications/MATLAB_R2021a.app/rtw/c/src/ext_mode/common/ext_types.h:
+
+/Applications/MATLAB_R2021a.app/rtw/c/src/ext_mode/common/ext_share.h:

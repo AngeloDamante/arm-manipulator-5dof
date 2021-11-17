@@ -25,7 +25,7 @@ unittests.utComputeT();
 unittests.utFkIk();
 
 % If it does not produce any error message, you are ready!
-sim('mHelloBraccio', 1); 
+%sim('mHelloBraccio', 1); 
 clear ans;
 
 %% Evaluate Memory                                                 %%%%%%%

@@ -1,0 +1,50 @@
+MW_ArduinoHWInit.o: \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/toolbox/target/supportpackages/arduinotarget/registry/../src/MW_ArduinoHWInit.cpp \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Arduino.h \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/binary.h \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/WCharacter.h \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/WString.h \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/HardwareSerial.h \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Stream.h \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Print.h \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Printable.h \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/USBAPI.h \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Arduino.h \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/variants/mega/pins_arduino.h \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/toolbox/target/supportpackages/arduinobase/include/io_wrappers.h \
+ /Users/loris/Desktop/Uni/arm-manipulator-6dof/mRobotArm_PickAndPlace_ert_rtw/rtwtypes.h \
+ /Applications/MATLAB_R2021a.app/extern/include/tmwtypes.h \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/toolbox/target/supportpackages/arduinotarget/scheduler/include/arduinoAVRScheduler.h \
+ /Users/loris/Documents/MATLAB/SupportPackages/R2021a/toolbox/target/supportpackages/arduinotarget/include/MW_ArduinoHWInit.h
+
+/Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Arduino.h:
+
+/Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/binary.h:
+
+/Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/WCharacter.h:
+
+/Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/WString.h:
+
+/Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/HardwareSerial.h:
+
+/Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Stream.h:
+
+/Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Print.h:
+
+/Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Printable.h:
+
+/Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/USBAPI.h:
+
+/Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/Arduino.h:
+
+/Users/loris/Documents/MATLAB/SupportPackages/R2021a/3P.instrset/arduinoide.instrset/Arduino.app/Contents/Java/hardware/arduino/avr/variants/mega/pins_arduino.h:
+
+/Users/loris/Documents/MATLAB/SupportPackages/R2021a/toolbox/target/supportpackages/arduinobase/include/io_wrappers.h:
+
+/Users/loris/Desktop/Uni/arm-manipulator-6dof/mRobotArm_PickAndPlace_ert_rtw/rtwtypes.h:
+
+/Applications/MATLAB_R2021a.app/extern/include/tmwtypes.h:
+
+/Users/loris/Documents/MATLAB/SupportPackages/R2021a/toolbox/target/supportpackages/arduinotarget/scheduler/include/arduinoAVRScheduler.h:
+
+/Users/loris/Documents/MATLAB/SupportPackages/R2021a/toolbox/target/supportpackages/arduinotarget/include/MW_ArduinoHWInit.h:
