@@ -13,19 +13,22 @@ import classes.*
 import unittests.*
 
 %% Load Data                                                       %%%%%%%
-% dh              = load('data/dhBraccioParam.mat');
-% braccio         = load('data/braccioRobot5Dof.mat');
-
-load('data/dhBraccioParam.mat');
-load('data/braccioRobot5Dof.mat');
+load('data/dBraccioDhParam.mat');
+load('dBraccioWsHome.mat');
+load('data/dBraccioRobot5Dof.mat');
+load('data/dPointsTest.mat');
 
 %% Unit Tests                                                      %%%%%%%
 unittests.utCarnot();
 unittests.utComputeT();
 unittests.utFkIk();
 
+% Arduino board must be connected to perform this test!
 % If it does not produce any error message, you are ready!
+
 %sim('mHelloBraccio', 1); 
+
+sim('mHelloBraccio.slx', 1); 
 clear ans;
 
 %% Evaluate Memory                                                 %%%%%%%
@@ -45,3 +48,4 @@ unittests.utEstimateMemory();
 %codertarget.arduinobase.registry.setBaudRate('mNextStepTest', 9600)
 %codertarget.arduinobase.registry.setBaudRate('mRobotArmControl', 9600)
 %codertarget.arduinobase.registry.setBaudRate('mTrackingSignalBased', 9600)
+

@@ -53,10 +53,10 @@ for i=1:size(zr,1)
     end
 end
 
-figure
+figure(1)
 plot3(dataset(1,:), dataset(2,:), dataset(3,:), '*b');
 title('Worksapce');
-axis equal;
-hold on
+axis equal
+hold off;
 end
 
