@@ -18,6 +18,7 @@ helpsearch*/
 slprj/
 sccprj/
 Foo/
+mRobotArm_PickAndPlace_ert_rtw/
 
 # Matlab code generation folders
 codeDir/
@@ -29,6 +30,9 @@ cacheDir/
 # Simulink cache files
 *.slxc
 *.original
+*.eep
+*.hex
+*.elf
 
 # Simulink 3D Animation
 *.wrl.*
