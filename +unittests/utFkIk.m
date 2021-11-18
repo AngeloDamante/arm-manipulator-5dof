@@ -36,7 +36,7 @@ oBraccio        = classes.Robot5Dof(aoJoints(1), aoJoints(2),   ...
                                     aoLinks(4));
 dtf = toc(dt0); % stopwatch timer
 
-fprintf('UT: PASS ---- Robot built in %2.2f ms:\n', dtf*1000);
+fprintf('UT: PASS ---- Robot built in: %2.2f ms\n', dtf*1000);
 
 % UT: Inner WS points generation
 adWS        = [400; 120; 220];
@@ -68,8 +68,8 @@ for p=1:size(dataset,2)
 end
 
 % Timing
-fprintf('UT: PASS ---- IK computed in %2.2f ms:\n', dtfIK*1000);
-fprintf('UT: PASS ---- FK computed in %2.2f ms:\n', dtfFK*1000);
+fprintf('UT: PASS ---- IK computed in: %2.2f ms\n', dtfIK*1000);
+fprintf('UT: PASS ---- FK computed in: %2.2f ms\n', dtfFK*1000);
 
 % Violation Test
 [bFv, qv]   = oBraccio.IKIN([500; 0; 0]);

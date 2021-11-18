@@ -5,7 +5,7 @@ clc
 % Paths
 addpath(genpath('data'));
 addpath(genpath('graphics'));
-addpath(genpath('models'));
+addpath(genpath('models/simulation'));
 
 %% Build Robot                                                     %%%%%%%
 
