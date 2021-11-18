@@ -25,8 +25,8 @@ unittests.utFkIk();
 
 % Arduino board must be connected to perform this test!
 % If it does not produce any error message, you are ready!
-%sim('mHelloBraccio.slx', 1); 
-%clear ans;
+% sim('mHelloBraccio.slx', 1); 
+% clear ans;
 
 %% Evaluate Memory                                                 %%%%%%%
 %{
