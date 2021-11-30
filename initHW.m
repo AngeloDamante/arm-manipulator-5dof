@@ -14,7 +14,7 @@ import unittests.*
 
 %% Load Data                                                       %%%%%%%
 load('data/dBraccioDhParam.mat');
-load('dBraccioWsHome.mat');
+load('data/dBraccioProperties.mat');
 load('data/dBraccioRobot5Dof.mat');
 load('data/dPointsTest.mat');
 
