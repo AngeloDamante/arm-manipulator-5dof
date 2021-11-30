@@ -15,11 +15,13 @@ classdef Robot5Dof
         m_oArm;         % Link Arm       
         m_oForearm;     % Link Forearm
         m_oHand;        % Link Hand
+        
+        m_adHome;       % Home joint config
     end
     
     methods
         function obj = Robot5Dof(oJBase, oJShoulder, oJElbow, oJPitch, oJWrist, ...
-                                oLGround, oLArm, oLForearm, oLHand)       
+                                oLGround, oLArm, oLForearm, oLHand, adHome)       
         % Constructor
             obj.m_oBase     = oJBase;
             obj.m_oShoulder = oJShoulder;
@@ -31,6 +33,8 @@ classdef Robot5Dof
             obj.m_oArm      = oLArm;
             obj.m_oForearm  = oLForearm;
             obj.m_oHand     = oLHand;
+            
+            obj.m_adHome    = adHome;
         end
         
         function obj = setHomeConf(obj, adHome)
@@ -73,7 +77,7 @@ classdef Robot5Dof
                 
                 adT     = adT * functions.computeT(d, q, a, alpha);
             end
-        end
+        end % KIN function
         
         function [bOk, adQ] = IKIN(obj, adPoint)
             %{
@@ -100,10 +104,17 @@ classdef Robot5Dof
                 if (bF2 == true), break; end
             end
             
+            if (bF2 == false)
+                base        = obj.m_adHome(1);
+                shoulder    = obj.m_adHome(2);
+                elbow       = obj.m_adHome(3);
+                wrist       = obj.m_adHome(4);
+            end
+            
             % Output
             bOk     = bF2;
-            adQ     = [base; shoulder; elbow; wrist];   % BUG
-        end
+            adQ     = [base; shoulder; elbow; wrist];   
+        end % IKIN function
     end
     methods (Access = private)
         function [bOk, angle] = computeBase(obj, x, y)
@@ -156,7 +167,7 @@ classdef Robot5Dof
             elbow       = pi - gamma;
             pitch       = phi - shoulder - elbow;
             
-            % check 
+            % check two solutions
             if (obj.m_oShoulder.isInRange(shoulder) == false || ...
                 obj.m_oElbow.isInRange(elbow)       == false || ...
                 obj.m_oPitch.isInRange(pitch)       == false )
