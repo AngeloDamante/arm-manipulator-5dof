@@ -12,15 +12,17 @@ addpath(genpath('models/simulation'));
 % Take a rigidBodyTree Object from URDF file
 oRbtBraccio = importrobot('Tinkerkit_model/tinkerkit.urdf');
 
+clc
+
 % Set HomeConfiguration
-adHomeConfig = [pi/2; pi/2; pi/2; pi/2; 0; 10 * pi / 180];
+adHomeConfig = [pi/2; pi/2; pi/2; pi/2; 0; 73 * pi / 180];
 
 oRbtBraccio.Bodies{1}.Joint.HomePosition = pi/2;
 oRbtBraccio.Bodies{2}.Joint.HomePosition = pi/2;
 oRbtBraccio.Bodies{3}.Joint.HomePosition = pi/2;
 oRbtBraccio.Bodies{4}.Joint.HomePosition = pi/2;
 oRbtBraccio.Bodies{5}.Joint.HomePosition = 0;
-oRbtBraccio.Bodies{8}.Joint.HomePosition = 10 * pi / 180;
+oRbtBraccio.Bodies{8}.Joint.HomePosition = 73 * pi / 180;
 
 % Add EE
 adEEOffset = 0.16;
@@ -46,11 +48,20 @@ adStartPoint    = [0 0 0.4515];
 adBallPoint     = [0.1 0.2 0.05];
 adPoint         = [0.15 0 0.25];
 adGoalPoint     = [0.1 -0.2 0.05];
+adEndPoint      = [0.2452 0 0.2562];
 
-adWaypoints     = [adStartPoint;
-                    adBallPoint;
-                    adPoint;
-                    adGoalPoint;];
+% adWaypoints     = [adStartPoint;
+%                     adBallPoint;
+%                     adPoint;
+%                     adGoalPoint;
+%                     adEndPoint];
+                
+adWaypoints     = [adStartPoint; ...
+                    (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; ...
+                    (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; ...
+                    (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; ...
+                    (rand*0.15)+0.05 ((rand*4)-2)/10 (rand*0.35)+0.05; ...
+                    adEndPoint];
 
 % Generate Trajectory from points
 aTrajectory     = cscvn(adWaypoints');
