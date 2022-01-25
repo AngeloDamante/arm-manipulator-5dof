@@ -1,5 +1,5 @@
-# Arm Manipulator 5 DOF Control with Arduino and Simulink
-Implementation of Arm Manipulator 5 DOF with Simulink, Stateflow for Arduino. The goal of this project is design and 
+# Tinkerkit Braccio 5 DOF control with Simulink
+Modeling, Simulation and Implementation of Arm Manipulator with 5 DOF.
 
 ### Requirements
 ```
@@ -98,42 +98,42 @@ This project consists in:
 
 ## Modeling
 The development platform is the Arduino Braccio Tinkerkit model with its workspace
-<center>
+<p align=center>
     <img src=docs/imgBraccio/BraccioDescr.png width="300"> <img src=docs/imgBraccio/ws.png width="400">
-</center>
+</p>
 and the follow forward kinematics mapping.
-<center>
+<p align=center>
     <img src=docs/imgBraccio/kinBraccio.png width="300">
-</center>
+</p>
 
 
 ## Simulation
 In this phase, we used the ```Robotics Toolbox``` to compute Forward Kinematics and Inverse Kinematics. ```VR Sink``` to simulate movements in virtual world. 
-<center>
+<p align=center>
     <img src=docs/imgBraccio/detailsBraccio6dofee.png width="600">
-</center>
+</p>
 the resulting model is the following
-<center>
+<p align=center>
     <img src=docs/imgBraccio/simTTmodel.png width="600">
-</center>
+</p>
 
 ## HW Implementation
 We have implemented two solutions to compute KIN and IKIN problems.
-<center>
+<p align=center>
     <img src=docs/imgBraccio/kin_ikin_solutions.png width="600">
-</center>
+</p>
 
 ### With Simulink Block - visual programming
 in this case we have used the ```Commonly Used Block```, ``` Math Operations ```, ```Ports Subsystem```, ``` Sink``` libraries.
-<center>
+<p align=center>
     <img src=docs/imgBraccio/mIKINblock_sub1.png width="600">
-</center>
+</p>
 
 ### With System Objects - OOP
 In this case, the software developed is shown in UML below.
-<center>
+<p align=center>
     <img src=docs/imgBraccio/uml.png width="600">
-</center>
+</p>
 
 ## Authors
 - <a href=https://github.com/AngeloDamante> Angelo D'Amante </a>
