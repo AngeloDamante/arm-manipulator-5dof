@@ -6,6 +6,9 @@ clc
 addpath(genpath('data'));
 addpath(genpath('graphics'));
 addpath(genpath('models/hardware'));
+addpath(genpath('models/kinematics'));
+addpath(genpath('models/tasks'));
+addpath(genpath('models/simulation'));
 
 % Imports
 import functions.*

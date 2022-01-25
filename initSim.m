@@ -30,6 +30,8 @@ oRbtEE     = robotics.RigidBody('ee');
 setFixedTransform(oRbtEE.Joint, trvec2tform([0 0 adEEOffset]));
 addBody(oRbtBraccio, oRbtEE, 'link4');
 
+showdetails(oRbtBraccio);
+
 %% Load Data                                                       %%%%%%%
 % Weight for IK block
 adWeight        = [0 0 0 1 1 1];
