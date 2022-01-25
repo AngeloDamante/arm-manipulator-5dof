@@ -1,5 +1,5 @@
-# Arm Manipulator 6 DOF Control with Arduino and Simulink
-Implementation of Arm Manipulator 6 DOF with Simulink, Stateflow for Arduino.
+# Arm Manipulator 5 DOF Control with Arduino and Simulink
+Implementation of Arm Manipulator 5 DOF with Simulink, Stateflow for Arduino. The goal of this project is design and 
 
 ### Requirements
 ```
@@ -40,15 +40,17 @@ This project consists in:
 1. Designing of Robot Model with URDF.
 2. Simulation KIN and Inverse KIN for target acquisition.
 3. HW Implementation of KIN and Inverse KIN for target acquisition.
-4. Design of Controller for Arm Manipulator 6 DOF.
-5. Generate stand-alone code for `Tinkerkit Braccio` model.
-6. Connect `PixyCam` to acquire the waypoints. 
+4. Generate stand-alone code for `Tinkerkit Braccio` model.
+5. Design of `TrajectoryTracking` Task.
+6. Design of `Pick&Place` Task.
 
 ### Directories Layout
 ```
 ├── +classes                                # Classes definitions files
-│   ├── Joint.m
-│   ├── Link.m
+│   ├── Joint.m
+│   ├── Link.m
+│   ├── oIKINSolver.m
+│   ├── oKINSolver.m
 │   └── Robot5Dof.m
 ├── +functions                              # Matlab functions files
 │   ├── computeT.m
@@ -61,14 +63,25 @@ This project consists in:
 │   ├── utComputeT.m
 │   ├── utEstimateMemory.m
 │   └── utFkIk.m
-├── models         
-│   ├── simulation                          # Robotics Toolbox models
-│   │   ├── mBraccioSimulation.slx          # Simulation Phase
-│   │   └── ...
-│   └── hardware                            # Hardware code-generator models
-│       ├── mHelloBraccio.slx               # To test tinkerkit shield
-│       ├── mBraccioHW.slx                  # HW phase
-│       └── ...
+├── models
+│   ├── hardware                            # Hardware code-generator models
+│   │   ├── mBraccioHWblocks.slx
+│   │   ├── mBraccioHW.slx                  # HW phase
+│   │   ├── mHelloBraccio.slx               # To test Platform
+│   │   ├── mReadMask.slx
+│   │   ├── mRescue.slx
+│   │   └── mWriteMask.slx
+│   ├── kinematics                          # Kinematics models
+│   │   ├── mIkinBlock.slx
+│   │   ├── mIkinValidator.slx
+│   │   └── mKinBlock.slx
+│   ├── simulation                          # Robotics Toolbox models
+│   │   ├── mBraccioSimulation.slx          # Simulation Phase
+│   │   ├── mFK.slx
+│   │   └── mIK.slx
+│   └── tasks                               # Task models
+│       ├── mRobotArm_PickAndPlace.slx      # P&P model
+│       └── mTrackingSignalBased.slx        # TrajectoryTracking model
 ├── data                                    # Ws data collectors
 │   └── ...
 ├── graphics                                # wrl and x3d files
@@ -79,14 +92,48 @@ This project consists in:
 │   └── ...
 ├── initSim.m                               # Script to start simulation
 ├── initHW.m                                # Script to start HW implementation
+├── IK_trajectory_tracking.m                # Script to start TT task
 └── README.md
 ```
 
+## Modeling
+The development platform is the Arduino Braccio Tinkerkit model with its workspace
+<center>
+    <img src=docs/imgBraccio/BraccioDescr.png width="300"> <img src=docs/imgBraccio/ws.png width="400">
+</center>
+and the follow forward kinematics mapping.
+<center>
+    <img src=docs/imgBraccio/kinBraccio.png width="300">
+</center>
+
+
 ## Simulation
-<i> Work in progress... </i>
+In this phase, we used the ```Robotics Toolbox``` to compute Forward Kinematics and Inverse Kinematics. ```VR Sink``` to simulate movements in virtual world. 
+<center>
+    <img src=docs/imgBraccio/detailsBraccio6dofee.png width="600">
+</center>
+the resulting model is the following
+<center>
+    <img src=docs/imgBraccio/simTTmodel.png width="600">
+</center>
 
 ## HW Implementation
-<i> Work in progress... </i>
+We have implemented two solutions to compute KIN and IKIN problems.
+<center>
+    <img src=docs/imgBraccio/kin_ikin_solutions.png width="600">
+</center>
+
+### With Simulink Block - visual programming
+in this case we have used the ```Commonly Used Block```, ``` Math Operations ```, ```Ports Subsystem```, ``` Sink``` libraries.
+<center>
+    <img src=docs/imgBraccio/mIKINblock_sub1.png width="600">
+</center>
+
+### With System Objects - OOP
+In this case, the software developed is shown in UML below.
+<center>
+    <img src=docs/imgBraccio/uml.png width="600">
+</center>
 
 ## Authors
 - <a href=https://github.com/AngeloDamante> Angelo D'Amante </a>
