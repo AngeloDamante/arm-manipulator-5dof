@@ -54,7 +54,7 @@ for i=1:size(zr,1)
 end
 
 figure(1)
-plot3(dataset(1,:), dataset(2,:), dataset(3,:), '*b');
+plot3(dataset(1,:), dataset(2,:), dataset(3,:), '-*b');
 title('Worksapce');
 axis equal
 hold off;
